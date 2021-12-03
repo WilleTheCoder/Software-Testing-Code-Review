@@ -16,7 +16,7 @@ public class StringFinder {
     }
 
     /*
-     * print lines where <pattern> is matched in <file>
+     * print lines where <pattern> is matched in <filename>
      * Example: "search cat demo.txt"
      */
     private static void searchFile(String pattern, String filename) {
