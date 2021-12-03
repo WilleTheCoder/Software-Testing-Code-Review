@@ -8,7 +8,7 @@ public class StringFinder {
             System.out.println("Wrong number of input parameters!");
         } else {
             if (args[0].equals("search")) {
-                searchFile(args[1], args[2]);
+                searchFile(String.valueOf(args[1]), args[2]);
             } else {
                 System.out.println("No valid method used");
             }
@@ -19,14 +19,14 @@ public class StringFinder {
      * print lines where <pattern> is matched in <file>
      * Example: "search cat demo.txt"
      */
-    private static void searchFile(String word, String filename) {
+    private static void searchFile(String pattern, String filename) {
         try {
             File file = new File(filename);
             Scanner reader = new Scanner(file);
             while (reader.hasNextLine()) {
-                String next = reader.nextLine();
-                if (next.contains(word)) {
-                    System.out.println(next);
+                String line = reader.nextLine();
+                if (line.contains(pattern)) {
+                    System.out.println(line);
                 }
             }
             reader.close();
@@ -34,5 +34,4 @@ public class StringFinder {
             System.out.println("Error while reading file");
         }
     }
-
 }
