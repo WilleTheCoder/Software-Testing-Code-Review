@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class StringFinder {
@@ -23,6 +24,7 @@ public class StringFinder {
         try {
             File file = new File(filename);
             Scanner reader = new Scanner(file);
+
             while (reader.hasNextLine()) {
                 String line = reader.nextLine();
                 if (line.contains(pattern)) {
@@ -30,8 +32,8 @@ public class StringFinder {
                 }
             }
             reader.close();
-        } catch (Exception E) {
-            System.out.println("Error while reading file");
+        } catch (FileNotFoundException E) {
+            System.out.println(E.getMessage());
         }
     }
 }
